@@ -63,7 +63,7 @@ function App() {
 
   useEffect(()=>{
     //access firebase posts collection
-    db.collection('posts').onSnapshot(snapshot => {
+    db.collection('posts').orderBy('timestamp', 'desc').onSnapshot(snapshot => {
       //Take a snapshot of the posts collection after the addition of every post
       setPosts(snapshot.docs.map(doc => ({
         id: doc.id,
@@ -100,9 +100,6 @@ function App() {
 
   return (
     <div className="App">
-      
-
-      <ImageUpload />
 
        <Modal
         open={open}
@@ -176,9 +173,7 @@ function App() {
           src='https://www.instagram.com/static/images/web/mobile_nav_type_logo.png/735145cfe0a4.png'
           alt='instragam logo'
         />
-      </div>
-
-      {user ? (
+        {user ? (
         <Button onClick={() => auth.signOut()}>Logout</Button>
       ) : (
         <div className='login-container'>
@@ -186,16 +181,25 @@ function App() {
           <Button onClick={() => setOpen(true)}>Sign Up</Button>
         </div>
       )}
-      
-      {
-        posts.map(({id, post}) =>{
-          return <Post key ={id} username={post.username} caption={post.caption} imageUrl={post.imageUrl} />
-          }
-        )
-      }
+      </div>
 
-      {/* Header */}
-      {/* Posts */}
+      <div className='app-posts'>
+      {
+        posts.map(({id, post}) =>(
+         <Post key ={id} username={post.username} caption={post.caption} imageUrl={post.imageUrl} />
+        ))
+      }
+      </div>
+      
+      
+      {user?.displayName ? ( //optional use but prefer the try/catch
+        <ImageUpload username={user.displayName}/>
+      ) : (
+        <h3>Sorry, you must log in to upload!</h3>
+      )} 
+      
+      
+      
     </div>
   );
 }
