@@ -1,28 +1,91 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import './Post.css'
+import {db} from '../../firebase'
+import firebase from 'firebase'
 import Avatar from '@material-ui/core/Avatar'
 
-function Post({username, caption, imageUrl}) {
+function Post({username, user, caption, imageUrl, postId}) {
+    const [comments, setComments] = useState([])
+    const [comment, setComment] = useState('')
+
+    useEffect(() => {
+        let unsubscribe;
+        if (postId) {
+            unsubscribe = db
+            .collection('posts')
+            .doc(postId)
+            .collection('comments')
+            .orderBy('timestamp', 'desc')
+            .onSnapshot((snapshot) => { //listen to a specific post to avoid full refresh
+                setComments(snapshot.docs.map((doc) => doc.data()))
+        })
+    } 
+        return () => {
+            unsubscribe()
+        }
+    },[postId])
+
+    const postComment = (event) => {
+        event.preventDefault();
+
+        db.collection('posts').doc(postId).collection('comments').add({
+            text: comment,
+            username: user.displayName,
+            timestamp: firebase.firestore.FieldValue.serverTimestamp()
+        })
+        setComment('')
+    }
+
     return (
         <div className='post'>
             <div className='post-header'>
                 <Avatar
                     className='post-avatar'
-                    alt='AaronLeon'
-                    src='https://scontent-lga3-1.xx.fbcdn.net/v/t1.0-9/28795034_1823727337638416_3423159191987027968_o.jpg?_nc_cat=106&_nc_sid=19026a&_nc_ohc=Bb1kobhrRuIAX9L7O0o&_nc_ht=scontent-lga3-1.xx&oh=60a3b6c4926a27f8036018620ee2ac36&oe=5F8D2D4C'
+                    alt={username}
+                    src='hbhb'
                 />
                 <h3>{username}</h3>
             </div>
             
-            {/* header -> avatar + usaername */}
+
             <img 
                 className='post-image'
                 src={imageUrl}
                 alt='dog'
             /> 
-            {/* image */}
+           
             <h4 className='post-text'><strong>{username}</strong>{caption}</h4>
-            {/* username + caption */}
+            
+            <div className='post-comments'>
+                {comments.map((comment) => {
+                   return(
+                    <p>
+                        <strong>{comment.username}</strong> {comment.text}
+                    </p>
+                   ) 
+                })}
+            </div>
+
+            {user && (
+                <form className='post-comment-box'>
+                <input
+                    className='post-input'
+                    type='text'
+                    placeholder='Post a comment...'
+                    value={comment}
+                    onChange={(e) => setComment(e.target.value)} 
+                />
+                <button 
+                    className='post-submit'
+                    disabled={!comment}
+                    type='submit'
+                    onClick={postComment}
+                >
+                    Post
+                </button>
+            </form>
+            )}
+            
         </div>
     )
 }
