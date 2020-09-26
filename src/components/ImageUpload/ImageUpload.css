@@ -1,10 +1,14 @@
 .image-upload{
     display: flex;
     flex-direction: column;
-    width: 60%;
+    width: 20%;
     margin: 10px auto;
     background-color: white;
     border-top: 1px solid lightgray;
+    position: fixed;
+    bottom: 0;
+    left: 40%;
+    z-index: 10;
 }
 
 .image-upload-progress{

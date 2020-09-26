@@ -195,7 +195,7 @@ function App() {
       {user?.displayName ? ( //optional use but prefer the try/catch
         <ImageUpload username={user.displayName}/>
       ) : (
-        <h3>Sorry, you must log in to upload!</h3>
+        <h3 className='logged-out'>Sorry, you must log in to upload!</h3>
       )} 
       
       

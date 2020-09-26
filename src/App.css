@@ -4,7 +4,7 @@
 
 .App{
   background-color: #fafafa;
-  height: 100vh;
+  
 }
 
 .app-header {
@@ -30,4 +30,13 @@
 
 .app-posts{
   padding: 1rem;
+}
+
+.logged-out{
+  background: black;
+  color: white;
+  position: fixed;
+  bottom: 1%;
+  left: 42%;
+  z-index: 10;
 }
