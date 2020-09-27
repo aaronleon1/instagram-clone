@@ -46,11 +46,18 @@ function ImageUpload({username}){
                     setProgress(0)
                     setCaption('')
                     setImage(null)
+                    window.scroll({
+                        top: 0, 
+                        left: 0, 
+                        behavior: 'smooth'
+                      });
                 })
             }
         )
     }
 
+
+    
     return(
         <div className='image-upload'>
             <progress className='image-upload-progress' value={progress} max='100' />
