@@ -1,6 +1,8 @@
 *{
   margin: 0;
+  scroll-behavior: smooth;
 }
+
 
 .App{
   background-color: #fafafa;
@@ -21,6 +23,7 @@
 
 .app-headerImage{
   object-fit: contain;
+  cursor: pointer;
 }
 
 .app-signup{
@@ -36,7 +39,8 @@
   background: black;
   color: white;
   position: fixed;
-  bottom: 1%;
-  left: 42%;
+  top: 5%;
+  left: 38%;
   z-index: 10;
 }
+

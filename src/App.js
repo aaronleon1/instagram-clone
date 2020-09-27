@@ -83,8 +83,10 @@ function App() {
       })
     }) //firebase user authentication from email and password state
     .catch((error) => alert(error.message))
-    
     setOpen(false)
+    setOpenSignIn(true)
+    
+
   }
   
   const signIn = (event) =>{
@@ -96,8 +98,15 @@ function App() {
 
     setOpenSignIn(false)
   }
-  
 
+  const scrollToTop = () =>{
+    window.scroll({
+      top: 0, 
+      left: 0, 
+      behavior: 'smooth'
+    });
+  }
+  
   return (
     <div className="App">
 
@@ -172,6 +181,7 @@ function App() {
           className='app-headerImage'
           src='https://www.instagram.com/static/images/web/mobile_nav_type_logo.png/735145cfe0a4.png'
           alt='instragam logo'
+          onClick={scrollToTop}
         />
         {user ? (
         <Button onClick={() => auth.signOut()}>Logout</Button>

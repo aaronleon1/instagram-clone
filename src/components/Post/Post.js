@@ -54,7 +54,7 @@ function Post({username, user, caption, imageUrl, postId}) {
                 alt='dog'
             /> 
            
-            <h4 className='post-text'><strong>{username}</strong>{caption}</h4>
+            <h4 className='post-text'><strong>{username}</strong> {caption}</h4>
             
             <div className='post-comments'>
                 {comments.map((comment) => {

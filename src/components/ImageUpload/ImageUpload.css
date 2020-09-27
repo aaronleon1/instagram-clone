@@ -14,3 +14,10 @@
 .image-upload-progress{
     width: 100%;
 }
+
+@media screen and (max-width: 960px) {
+    .image-upload{
+        width: 95%;
+        left: 3%;
+    }
+}
