@@ -37,10 +37,17 @@
 
 .logged-out{
   background: black;
+  text-align: center;
   color: white;
   position: fixed;
-  top: 5%;
-  left: 38%;
+  bottom: 2%;
+  left: 43%;
   z-index: 10;
 }
 
+@media screen and (max-width: 960px){
+  .logged-out{
+    left: 10%;
+  }
+  
+}
