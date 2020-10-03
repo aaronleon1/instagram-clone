@@ -19,6 +19,7 @@ Live version available at: www.instaclone.xyz
 ### When posting as a test
   
 Currently a user cannot delete their posts, so upload a work-safe image (dog and cat themed currently) and it will be deleted within the day. Database is checked frequently.
+Feel free to keep your information private and just use credentials like: Username: testuser101 and email: testuser101@gmail.com. Any variation will work.
 
 ### Known Issues
 
