@@ -1,4 +1,4 @@
-### Instagram Clone - A ReactJS Instagram clone
+## Instagram Clone - A ReactJS Instagram clone
 
 The project features:
 
