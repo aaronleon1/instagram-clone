@@ -2,13 +2,13 @@
 
 The project features:
 
-Google Firebase:
+- Google Firebase:
   - Authentication
   - Storage
   - Database
--Material UI
--Image uploading
--Commenting
+- Material UI
+- Image uploading
+- Commenting
 
 Third Party Dependencies include: 
 - Google Firebase
