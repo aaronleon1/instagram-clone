@@ -2,7 +2,7 @@
 
 The project features:
 
--Google Firebase:
+Google Firebase:
   - Authentication
   - Storage
   - Database
