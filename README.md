@@ -16,7 +16,7 @@ Third Party Dependencies include:
 
 Live version available at: www.instaclone.xyz
 
-### When posting as a test
+### When uploading a test post
   
 Currently a user cannot delete their posts, so upload a work-safe image (dog and cat themed currently) and it will be deleted within the day. Database is checked frequently and I am working on the best way to keep a user from deleting all posts as opposed to just their own.
 Feel free to keep your information private and just use test/dummy credentials.
