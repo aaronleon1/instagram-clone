@@ -3,6 +3,7 @@ import './Post.css'
 import {db} from '../../firebase'
 import firebase from 'firebase'
 import Avatar from '@material-ui/core/Avatar'
+import ClearIcon from '@material-ui/icons/Clear';
 
 function Post({username, user, caption, imageUrl, postId}) {
     const [comments, setComments] = useState([])
@@ -36,6 +37,14 @@ function Post({username, user, caption, imageUrl, postId}) {
         setComment('')
     }
 
+    const deletePost = () => {
+        db.collection("posts").doc(`${postId}`).delete().then(function() {
+            console.log("Document successfully deleted!");
+        }).catch(function(error) {
+            console.error("Error removing document: ", error);
+        });
+    }
+
     return (
         <div className='post'>
             <div className='post-header'>
@@ -45,6 +54,9 @@ function Post({username, user, caption, imageUrl, postId}) {
                     src='hbhb'
                 />
                 <h3>{username}</h3>
+                {
+                user && postId && user.displayName == username ? (<button className='post-delete' onClick={deletePost}><ClearIcon /></button>) : ('')
+            }
             </div>
             
 
@@ -55,6 +67,7 @@ function Post({username, user, caption, imageUrl, postId}) {
             /> 
            
             <h4 className='post-text'><strong>{username}</strong> {caption}</h4>
+            
             
             <div className='post-comments'>
                 {comments.map((comment) => {

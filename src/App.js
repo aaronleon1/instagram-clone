@@ -41,6 +41,7 @@ function App() {
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
   const [user, setUser] = useState(null)
+ 
 
   useEffect(() =>{
     const unsubscribe = auth.onAuthStateChanged((authUser) => {
@@ -48,6 +49,8 @@ function App() {
         //user has logged in
         console.log(authUser)
         setUser(authUser) //uses cookie tracking to keep a persistent state
+        
+
 
       }
       else{
@@ -127,18 +130,21 @@ function App() {
                 placeholder='username'
                 type='text'
                 value={username}
+                required='required'
                 onChange={(e) => setUsername(e.target.value)}
               />
               <Input
                 placeholder='email'
                 type='text'
                 value={email}
+                
                 onChange={(e) => setEmail(e.target.value)}
               />
               <Input
                 placeholder='password'
                 type='password'
                 value={password}
+                required
                 onChange={(e) => setPassword(e.target.value)}
               />
               <Button type='submit' onClick={signUp}>Sign Up</Button>
@@ -196,7 +202,7 @@ function App() {
       <div className='app-posts'>
       {
         posts.map(({id, post}) =>(
-         <Post key ={id} username={post.username} user={user} postId={id} caption={post.caption} imageUrl={post.imageUrl} />
+         <Post key ={id} username={post.username} user={user} postId={id} caption={post.caption} imageUrl={post.imageUrl} userId={post.userId} />
         ))
       }
       </div>

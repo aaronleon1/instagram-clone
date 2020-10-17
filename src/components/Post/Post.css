@@ -1,4 +1,5 @@
 .post{
+    position: relative;
     background: white;
     max-width: 500px;
     border: 1px solid lightgray;
@@ -25,6 +26,17 @@
 
 .post-avatar{
     margin-right: 10px;
+}
+
+.post-delete{ 
+    position: absolute;
+    top: 0px;
+    right: 0px;
+    outline: none;
+    border: none;
+    background: transparent;
+    font-size: 28px;
+    cursor: pointer;
 }
 
 .post-comments{
