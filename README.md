@@ -18,8 +18,7 @@ Live version available at: www.instaclone.xyz
 
 ### When uploading a test post
   
-Currently a user cannot delete their posts, so upload a work-safe image (dog and cat themed currently) and it will be deleted within the day. Database is checked frequently and I am working on the best way to keep a user from deleting all posts as opposed to just their own.
-Feel free to keep your information private and just use test/dummy credentials.
+Feel free to test out post uploading and commenting. Press the X icon on your post to delete it from the database.
 
 ### Known Issues
 
@@ -27,5 +26,5 @@ Feel free to keep your information private and just use test/dummy credentials.
 
 ### Current Focus
 - Sign-up form validation
-- Working to implement likes and user-specific post deletion
+- Working to implement likes
 - Further styling on for image uploader when logged out
