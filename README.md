@@ -18,13 +18,9 @@ Live version available at: www.instaclone.xyz
 
 ### When uploading a test post
   
-Feel free to test out post uploading and commenting. Press the X icon on your post to delete it from the database.
-
-### Known Issues
-
-- Users can currently sign up without a username. Must introduce form validation for compliance with all database requirements.
+Sign up is reaquired to post, so feel free to use any test/dummy credentials like test1234567@gmail.com. Press the X icon on your post to delete it from the database.
 
 ### Current Focus
 - Sign-up form validation
 - Working to implement likes
-- Further styling on for image uploader when logged out
+
