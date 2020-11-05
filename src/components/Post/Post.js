@@ -16,7 +16,7 @@ function Post({username, user, caption, imageUrl, postId}) {
             .collection('posts')
             .doc(postId)
             .collection('comments')
-            .orderBy('timestamp', 'desc')
+            .orderBy('timestamp', 'asc')
             .onSnapshot((snapshot) => { //listen to a specific post to avoid full refresh
                 setComments(snapshot.docs.map((doc) => doc.data()))
         })
@@ -51,7 +51,7 @@ function Post({username, user, caption, imageUrl, postId}) {
                 <Avatar
                     className='post-avatar'
                     alt={username}
-                    src='hbhb'
+                    src=''
                 />
                 <h3>{username}</h3>
                 {
