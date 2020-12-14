@@ -76,7 +76,7 @@ function App() {
   }, [])
   
   const signUp = (event) =>{
-    event.preventDefault() //Prevent form default
+    event.preventDefault() 
 
     auth
     .createUserWithEmailAndPassword(email, password)
